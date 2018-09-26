@@ -29,7 +29,7 @@ class App extends Component {
         const findPlanet = this.state.unselectedPlanets.find(item => item.world === world);
 
         if(findPlanet === undefined) {
-            // failure to select a new dog
+            // failure to select a new planet
             this.setState({ 
                 message: "You guessed incorrectly!",
                 topScore: (this.state.curScore > this.state.topScore) ? this.state.curScore : this.state.topScore,
@@ -39,7 +39,7 @@ class App extends Component {
             });
         }
         else {
-            // success to select a new dog
+            // success to select a new planet
             const newPlanets = this.state.unselectedPlanets.filter(item => item.world !== world);
             
             this.setState({ 
