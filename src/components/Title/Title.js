@@ -3,7 +3,7 @@ import "./Title.css";
 
 const Title = props => (
     <div className="titlebox">
-        <h1>Pick A Planet</h1>
+        <h1>Click A Planet</h1>
         <p>Click on an image to earn points, but don't click on any more than once!</p>
     </div>
 );

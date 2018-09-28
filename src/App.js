@@ -10,12 +10,9 @@ class App extends Component {
     state = { 
         message: "Click an image to begin!",
         topScore: 0,
-        curScore: 0,
+        currentScore: 0,
         planets: planets,
-        unselectedPlanets: planets
-    }
-
-    componentDidMount() {
+        unselectedPlanets: planets 
     }
 
     shuffleArray = array => {
@@ -32,19 +29,21 @@ class App extends Component {
             // failure to select a new planet
             this.setState({ 
                 message: "You guessed incorrectly!",
-                topScore: (this.state.curScore > this.state.topScore) ? this.state.curScore : this.state.topScore,
-                curScore: 0,
+                topScore: (this.state.currentScore > this.state.topScore) ? this.state.currentScore : this.state.topScore,
+                currentScore: 0,
                 planets: planets,
                 unselectedPlanets: planets
             });
         }
+
+
         else {
             // success to select a new planet
             const newPlanets = this.state.unselectedPlanets.filter(item => item.world !== world);
             
             this.setState({ 
                 message: "You guessed correctly!",
-                curScore: this.state.curScore + 1,
+                currentScore: this.state.currentScore + 1,
                 planets: planets,
                 unselectedPlanets: newPlanets 
             });
@@ -58,7 +57,7 @@ class App extends Component {
             <Wrapper>
                 <Nav
                     message={this.state.message}
-                    curScore={this.state.curScore}
+                    currentScore={this.state.currentScore}
                     topScore={this.state.topScore}
                 />
                 <Title />
@@ -68,7 +67,7 @@ class App extends Component {
                             world={planet.world}
                             image={planet.image}
                             selectPlanet={this.selectPlanet} 
-                            curScore={this.state.curScore}
+                            currentScore={this.state.currentScore}
                         />
                     ))
                 }

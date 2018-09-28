@@ -3,9 +3,9 @@ import "./Nav.css";
 
 const Nav = props => (
     <div>
-        <ul className="nav nav-pills nav-justified">
-            <li><a href="/">Pick a Planet</a></li>
-            <li
+        <ul className="navbar nav-justified">
+           <a href="/">Click A Planet</a>
+            <div
                 className={props.message.indexOf('incorrectly') !== -1 ? 
                     "desc-incorrect" : 
                     props.message.indexOf('correctly') !== -1 ?
@@ -13,8 +13,8 @@ const Nav = props => (
                         "desc-normal"}
             >
                 {props.message}
-            </li>
-            <li>Score: <span style={{color: "yellow"}}>{props.curScore}</span> | Top Score: {props.topScore}</li>
+            </div>
+            <div>Score: <span style={{color: "green"}}>{props.currentScore}</span> | Top Score: {props.topScore}</div>
         </ul> 
     </div>
 );
